@@ -3,8 +3,6 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
 }
 
 .description {
@@ -275,4 +273,10 @@
   to {
     transform: rotate(0deg);
   }
+}
+
+.wrapper {
+  height: calc( 100% - 72px );
+  width: 100%;
+  overflow: auto;
 }
