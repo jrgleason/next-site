@@ -23,6 +23,7 @@
     "typescript": "latest"
   },
   "devDependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "autoprefixer": "latest",
     "postcss": "latest",
     "sass": "latest",
