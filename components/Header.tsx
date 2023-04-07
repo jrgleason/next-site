@@ -22,12 +22,11 @@ const Header = () => {
             z-50
             lg:px-8"
              aria-label="Global">
-            <FontAwesomeIcon icon={faBars} />
-            <div className="jrg-header-title flex flex-1 justify-center text-xl">
-                <strong>THE&nbsp;</strong>
-                <span> Jackie R. Gleason</span>
+            <div className={`flex-1 justify-start flex`}>
             </div>
-            <div className= {`flex justify-between justify-end ${ styles["jrg-buttons"]}`}>
+            <div className="jrg-header-title flex flex-1 justify-center text-xl">
+            </div>
+            <div className= {`flex flex-1 justify-between justify-end ${ styles["jrg-buttons"]}`}>
                 <button
                     className="
                         jrg-resume-button

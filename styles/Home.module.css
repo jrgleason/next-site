@@ -78,8 +78,8 @@
   padding: 4rem 0;
   background-image: url("https://images.squarespace-cdn.com/content/v1/59909c3a1e5b6cfb68d6df0f/1502787631066-10F68923N868OTVWXKC4/ke17ZwdGBToddI8pDm48kFWxnDtCdRm2WA9rXcwtIYR7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UcTSrQkGwCGRqSxozz07hWZrYGYYH8sg4qn8Lpf9k1pYMHPsat2_S1jaQY3SwdyaXg/DSC07574.jpg?format=1500w");
   background-repeat: no-repeat;
-  background-position: 0 65%;
-  background-size: 100%, auto;
+  background-position: top;
+  background-size: auto, 100%;
   width: 100%;
   height: 100vh;
 }
