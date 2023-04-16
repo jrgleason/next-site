@@ -22,11 +22,11 @@ const Header = () => {
             z-50
             lg:px-8"
              aria-label="Global">
-            <div className={`flex-1 justify-start flex`}>
+            <div className={`grow-1 justify-start flex`}>
             </div>
-            <div className="jrg-header-title flex flex-1 justify-center text-xl">
+            <div className="jrg-header-title flex grow-3 justify-center text-xl">
             </div>
-            <div className= {`flex flex-1 justify-between justify-end ${ styles["jrg-buttons"]}`}>
+            <div className= {`flex grow-1 justify-between justify-end ${ styles["jrg-buttons"]}`}>
                 <button
                     className="
                         jrg-resume-button
