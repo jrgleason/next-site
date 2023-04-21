@@ -9,9 +9,9 @@ const HomePage = ()=>{
         <div className={
             `${styles.center} font-extrabold flex flex-col items-start px-10 py-20`
         }>
-            <div className={"text-8xl p-3 text-green-800 osu-gradiant"}>THE</div>
-            <div className={"text-6xl font-extrabold p-5 text-white"}>Jackie Gleason!</div>
-            <div className={"text-xl font-extrabold p-5 text-white"}>Premier Columbus-area developer</div>
+            <div className={"text-8xl p-3 text-green-800 osu-gradiant"}>SecondAve.net</div>
+            <div className={"text-6xl font-extrabold p-5 text-white"}>Home Automation and Solar Consulting</div>
+            <div className={"text-xl font-extrabold p-5 text-white"}>The new leading provider of home automation services in Columbus</div>
         </div>
 
         <div className={styles.grid}>

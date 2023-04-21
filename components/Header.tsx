@@ -1,11 +1,65 @@
 import styles from '@/styles/Header.module.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-const Header = () => {
-    function handleResumeClick() {
-        window.location.href = 'https://docs.google.com/document/d/1xrqve90hloOYGR3RSCvwXJBXq_NQR5kmNfrxKYSveKk';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faEnvelope} from '@fortawesome/free-solid-svg-icons'
+import {faGithub} from '@fortawesome/free-brands-svg-icons'
+import {styled} from '@mui/material/styles'
+import {Button, Tooltip, tooltipClasses, TooltipProps} from '@mui/material'
+import HourPicker from "@/components/HourPicker"
+import { useAuth0 } from '@auth0/auth0-react'
+
+/**
+ * Stolen from StackOverflow
+ */
+const BootstrapTooltip = styled(({className, ...props}: TooltipProps) => (
+    <Tooltip {...props} arrow classes={{popper: className}}/>
+))(({theme}) => ({
+    [`& .${tooltipClasses.arrow}`]: {
+        color: theme.palette.common.black,
+    },
+    [`& .${tooltipClasses.tooltip}`]: {
+        backgroundColor: theme.palette.common.black,
+    },
+}));
+
+type UserHeaderProps = {
+    isLoggedIn: boolean;
+    handleClick: () => void;
+};
+
+function UserHeader(
+    { isLoggedIn, handleClick }:
+        UserHeaderProps
+) {
+    if (isLoggedIn) {
+        return (
+            <Button
+                onClick={handleClick}
+            >
+                <HourPicker label={"Schedule a time"}/>
+            </Button>
+        );
+    } else {
+        return (
+            <Button
+                onClick={handleClick}
+            >
+                Login
+            </Button>
+        )
     }
+}
+
+const Header = () => {
+
+    let {
+        isAuthenticated,
+        loginWithRedirect,
+    } = useAuth0();
+
+    function handleClick() {
+        window.location.href = "mailto:jackiegleason@gmail.com?subject=I Need Home Automation Help!";
+    }
+
     return (
         <nav className="
             bg-transparent
@@ -26,24 +80,27 @@ const Header = () => {
             </div>
             <div className="jrg-header-title flex grow-3 justify-center text-xl">
             </div>
-            <div className= {`flex grow-1 justify-between justify-end ${ styles["jrg-buttons"]}`}>
-                <button
-                    className="
-                        jrg-resume-button
-                        rounded
-                        border-transparent
-                        capitalize
-                    "
-                    onClick={handleResumeClick}
-                >
-                    resumé
-                </button>
-                <a href="https://www.linkedin.com/in/jackie-gleason-5a52114/" slot="actionItems">
-                    <FontAwesomeIcon icon={faLinkedin} />
-                </a>
-                <a href="https://github.com/jrgleason" slot="actionItems">
-                    <FontAwesomeIcon icon={faGithub} />
-                </a>
+            <div className={`flex grow-1 justify-between ${styles["jrg-buttons"]}`}>
+                <BootstrapTooltip title="Contact Us">
+                    <Button
+                        onClick={handleClick}
+                    >
+                        <FontAwesomeIcon icon={faEnvelope} className={"text-white text-2xl"}/>
+                    </Button>
+                </BootstrapTooltip>
+                <BootstrapTooltip title="Our Code">
+                    <Button
+                        onClick={handleClick}
+                    >
+                        <FontAwesomeIcon icon={faGithub} className={"text-white text-2xl"}/>
+                    </Button>
+                </BootstrapTooltip>
+                <BootstrapTooltip title="Schedule a time">
+                    <UserHeader
+                        isLoggedIn={isAuthenticated}
+                        handleClick={loginWithRedirect}
+                    />
+                </BootstrapTooltip>
             </div>
 
         </nav>

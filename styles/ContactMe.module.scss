@@ -1,0 +1,10 @@
+// I would like to move the styles from the ContactMeModule to the ContactMe.module.scss file when they are not tailwindcss classes
+
+.box {
+  @apply bg-white shadow-md rounded-lg p-4;
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+}

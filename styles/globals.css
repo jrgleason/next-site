@@ -109,7 +109,7 @@ a {
 }
 
 .osu-gradiant{
-  background: -webkit-linear-gradient(right,#666666 70px,#BB0000);
+  background: -webkit-linear-gradient(right,#666666 170px,#BB0000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
