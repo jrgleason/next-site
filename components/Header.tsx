@@ -27,26 +27,25 @@ type UserHeaderProps = {
 };
 
 function UserHeader(
-    { isLoggedIn, handleClick }:
+    { isLoggedIn, handleClick}:
         UserHeaderProps
 ) {
-    if (isLoggedIn) {
-        return (
+    return isLoggedIn ?
+        (
             <Button
                 onClick={handleClick}
             >
                 <HourPicker label={"Schedule a time"}/>
             </Button>
-        );
-    } else {
-        return (
+        ) :
+        (
             <Button
                 onClick={handleClick}
+                className={"text-white text-2xl"}
             >
                 Login
             </Button>
-        )
-    }
+        );
 }
 
 const Header = () => {
@@ -95,12 +94,10 @@ const Header = () => {
                         <FontAwesomeIcon icon={faGithub} className={"text-white text-2xl"}/>
                     </Button>
                 </BootstrapTooltip>
-                <BootstrapTooltip title="Schedule a time">
-                    <UserHeader
-                        isLoggedIn={isAuthenticated}
-                        handleClick={loginWithRedirect}
-                    />
-                </BootstrapTooltip>
+                <UserHeader
+                    isLoggedIn={isAuthenticated}
+                    handleClick={loginWithRedirect}
+                />
             </div>
 
         </nav>
