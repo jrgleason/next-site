@@ -5,6 +5,14 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/protected',
+        destination: 'http://localhost:8080/protected' // Proxy to Backend
+      }
+    ]
+  }
 }
 
 module.exports = nextConfig

@@ -6,6 +6,7 @@ import {styled} from '@mui/material/styles'
 import {Button, Tooltip, tooltipClasses, TooltipProps} from '@mui/material'
 import HourPicker from "@/components/HourPicker"
 import { useAuth0 } from '@auth0/auth0-react'
+import {UserHeader} from "@/components/UserHeader";
 
 /**
  * Stolen from StackOverflow
@@ -21,39 +22,7 @@ const BootstrapTooltip = styled(({className, ...props}: TooltipProps) => (
     },
 }));
 
-type UserHeaderProps = {
-    isLoggedIn: boolean;
-    handleClick: () => void;
-};
-
-function UserHeader(
-    { isLoggedIn, handleClick}:
-        UserHeaderProps
-) {
-    return isLoggedIn ?
-        (
-            <Button
-                onClick={handleClick}
-            >
-                <HourPicker label={"Schedule a time"}/>
-            </Button>
-        ) :
-        (
-            <Button
-                onClick={handleClick}
-                className={"text-white text-2xl"}
-            >
-                Login
-            </Button>
-        );
-}
-
 const Header = () => {
-
-    let {
-        isAuthenticated,
-        loginWithRedirect,
-    } = useAuth0();
 
     function handleClick() {
         window.location.href = "mailto:jackiegleason@gmail.com?subject=I Need Home Automation Help!";
@@ -95,8 +64,7 @@ const Header = () => {
                     </Button>
                 </BootstrapTooltip>
                 <UserHeader
-                    isLoggedIn={isAuthenticated}
-                    handleClick={loginWithRedirect}
+                    handleClick={handleClick}
                 />
             </div>
 
