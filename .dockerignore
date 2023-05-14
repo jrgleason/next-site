@@ -1,0 +1,6 @@
+.idea
+.bsp
+target
+node_modules
+.next
+*.iml

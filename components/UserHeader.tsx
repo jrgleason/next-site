@@ -28,6 +28,14 @@ function UserHeader(props: UserHeaderProps) {
         console.log(token);
         return token;
     }
+    const callUserInfo = async ()=>{
+        //call the protected endpoint with the token
+        const token = await getToken()
+        const headers = { 'Authorization': `Bearer ${token}` }
+        const response = await fetch('/oidc', { headers })
+        const json = await response.text()
+        console.log("The response is \n"+json+"\n Status:"+response.status)
+    }
     const callProtected = async ()=>{
         //call the protected endpoint with the token
         const token = await getToken()
@@ -73,6 +81,8 @@ function UserHeader(props: UserHeaderProps) {
                 { isAuthenticated && <MenuItem><HourPicker label={"Schedule a time"}/></MenuItem>}
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
                 <MenuItem onClick={handleClose}>My account</MenuItem>
+
+                { isAuthenticated && <MenuItem onClick={callUserInfo}>Call User Info</MenuItem> }
                 { isAuthenticated && <MenuItem onClick={callProtected}>Call Protected</MenuItem> }
                 { isAuthenticated && <MenuItem onClick={getToken}>Generate Token</MenuItem> }
                 { !isAuthenticated && <MenuItem onClick={onClick}>Sign In</MenuItem> }
